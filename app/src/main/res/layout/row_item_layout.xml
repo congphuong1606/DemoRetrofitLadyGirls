@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="3dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imv_hinh_dai_dien"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/imv_hinh_dai_dien"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_hoten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="20dp"
+                android:text="NGUYEN HOANG HOA"
+                android:textColor="#0b162d"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_ngaysinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20/22/23"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

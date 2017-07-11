@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ominext.android.vn.ladygirls.DetailActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/ic_launcher"
+        android:scaleType="centerCrop" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView"
+        android:background="@drawable/checked" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ho_ten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Nguyễn Văn Phượng"
+            android:textColor="#790707"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_que_quan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Nghệ an"
+            android:textColor="#0f0f23"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_chieu_cao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="18sp"
+                android:textColor="#1b1651"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_can_nang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="58kg"
+                android:textColor="#1b1651"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_so_do_ba_vong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="80/90/100"
+            android:textColor="#1b1651"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_so_thich"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="ăn học ngủ nghỉ các kiểu"
+            android:textColor="#1b1651"
+            android:textSize="18sp" />
+
+        <TextView
+
+            android:id="@+id/tv_cau_noi_yeu_thich"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Cuoc song lam chong gai chung ta khong ngung phan đau. balala"
+            android:textColor="#030303"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+</RelativeLayout>
