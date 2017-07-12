@@ -1,4 +1,4 @@
-package ominext.android.vn.ladygirls;
+package ominext.android.vn.ladygirls.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ominext.android.vn.ladygirls.R;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -40,13 +41,13 @@ public class DetailActivity extends AppCompatActivity {
                 .crossFade(3000)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView);
-        tvCanNang.setText("Cân nặng:"+getIntent().getStringExtra("cannang"));
+        tvCanNang.setText("Cân nặng:" + getIntent().getStringExtra("cannang"));
         tvHoTen.setText(getIntent().getStringExtra("hoten"));
-        tvCauNoiYeuThich.setText("Câu nói yêu thích:"+getIntent().getStringExtra("caunoiyeuthich"));
-        tvChieuCao.setText("chiều cao:"+getIntent().getStringExtra("chieucao"));
+        tvCauNoiYeuThich.setText("Câu nói yêu thích:" + getIntent().getStringExtra("caunoiyeuthich"));
+        tvChieuCao.setText("chiều cao:" + getIntent().getStringExtra("chieucao"));
         tvQueQuan.setText(getIntent().getStringExtra("quequan"));
-        tvSoThich.setText("Sở thích:"+getIntent().getStringExtra("sothich"));
-        tvSoDoBaVong.setText("Số đo ba vòng:"+getIntent().getStringExtra("sodobavong"));
+        tvSoThich.setText("Sở thích:" + getIntent().getStringExtra("sothich"));
+        tvSoDoBaVong.setText("Số đo ba vòng:" + getIntent().getStringExtra("sodobavong"));
 
     }
 }

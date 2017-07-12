@@ -14,22 +14,22 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
-import ominext.android.vn.ladygirls.DetailActivity;
-import ominext.android.vn.ladygirls.Model.NuSinh;
+import ominext.android.vn.ladygirls.Activity.DetailActivity;
+import ominext.android.vn.ladygirls.Model.SchoolGirl;
 import ominext.android.vn.ladygirls.R;
 
 /**
  * Created by MyPC on 10/07/2017.
  */
 
-public class NuSinhAdapter extends RecyclerView.Adapter<NuSinhAdapter.ViewHolder> {
-    ArrayList<NuSinh> nuSinhs;
+public class SchoolGirlAdapter extends RecyclerView.Adapter<SchoolGirlAdapter.ViewHolder> {
+    ArrayList<SchoolGirl> schoolGirls;
     Context context;
-    private NuSinh nuSinh;
+    private SchoolGirl schoolGirl;
 
 
-    public NuSinhAdapter(Context context, int layout, ArrayList<NuSinh> nuSinhs) {
-        this.nuSinhs = nuSinhs;
+    public SchoolGirlAdapter(Context context, int layout, ArrayList<SchoolGirl> schoolGirls) {
+        this.schoolGirls = schoolGirls;
         this.context = context;
     }
 
@@ -42,27 +42,28 @@ public class NuSinhAdapter extends RecyclerView.Adapter<NuSinhAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        nuSinh = nuSinhs.get(position);
-        holder.mHinhDaiDien = nuSinh.getmHinhDaiDien();
-        holder.mHoTen = nuSinh.getmHoTen();
-        holder.mQueQuan = nuSinh.getmQueQuan();
-        holder.mChieuCao = nuSinh.getmChieuCao();
-        holder.mCanNang = nuSinh.getmCanNang();
-        holder.mSoDoBaVong = nuSinh.getmSoDoBaVong();
-        holder.mSothich = nuSinh.getmSothich();
-        holder.mCauNoiYeuThich = nuSinh.getmCauNoiYeuThich();
-        holder.tvNgaySinh.setText(nuSinh.getmNgaySinh());
+        schoolGirl = schoolGirls.get(position);
+
+        holder.mHinhDaiDien = schoolGirl.getmHinhDaiDien();
+        holder.mHoTen = schoolGirl.getmHoTen();
+        holder.mQueQuan = schoolGirl.getmQueQuan();
+        holder.mChieuCao = schoolGirl.getmChieuCao();
+        holder.mCanNang = schoolGirl.getmCanNang();
+        holder.mSoDoBaVong = schoolGirl.getmSoDoBaVong();
+        holder.mSothich = schoolGirl.getmSothich();
+        holder.mCauNoiYeuThich = schoolGirl.getmCauNoiYeuThich();
+        holder.tvNgaySinh.setText(schoolGirl.getmNgaySinh());
         holder.tvHoTen.setText(holder.mHoTen);
         Glide.with(context).load(holder.mHinhDaiDien)
                 .error(R.mipmap.ic_launcher)
-                .crossFade(3000)
+                .crossFade(2000)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return nuSinhs.size();
+        return schoolGirls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -5,11 +5,13 @@ package ominext.android.vn.ladygirls;
  */
 
 public class ApiUtils {
-    public static final String BASE_URL="http://www.mocky.io";
-    private ApiUtils(){
+    public static final String BASE_URL = "http://www.mocky.io";
+
+    private ApiUtils() {
 
     }
-    public static IAPIService getIapiService(){
-        return RetrofitClient.getClient(BASE_URL).create(IAPIService.class);
+
+    public static APIService getIapiService() {
+        return RetrofitClient.getClient(BASE_URL).create(APIService.class);
     }
 }
