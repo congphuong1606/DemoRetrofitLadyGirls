@@ -14,6 +14,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ominext.android.vn.ladygirls.Activity.DetailActivity;
 import ominext.android.vn.ladygirls.Model.SchoolGirl;
 import ominext.android.vn.ladygirls.R;
@@ -25,6 +27,7 @@ import ominext.android.vn.ladygirls.R;
 public class SchoolGirlAdapter extends RecyclerView.Adapter<SchoolGirlAdapter.ViewHolder> {
     ArrayList<SchoolGirl> schoolGirls;
     Context context;
+
     private SchoolGirl schoolGirl;
 
 
@@ -52,13 +55,13 @@ public class SchoolGirlAdapter extends RecyclerView.Adapter<SchoolGirlAdapter.Vi
         holder.mSoDoBaVong = schoolGirl.getmSoDoBaVong();
         holder.mSothich = schoolGirl.getmSothich();
         holder.mCauNoiYeuThich = schoolGirl.getmCauNoiYeuThich();
-        holder.tvNgaySinh.setText(schoolGirl.getmNgaySinh());
-        holder.tvHoTen.setText(holder.mHoTen);
+        holder.tvNgaysinh.setText(schoolGirl.getmNgaySinh());
+        holder.tvHoten.setText(holder.mHoTen);
         Glide.with(context).load(holder.mHinhDaiDien)
                 .error(R.mipmap.ic_launcher)
                 .crossFade(2000)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .into(holder.imageView);
+                .into(holder.imvHinhDaiDien);
     }
 
     @Override
@@ -67,9 +70,6 @@ public class SchoolGirlAdapter extends RecyclerView.Adapter<SchoolGirlAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView tvHoTen;
-        TextView tvNgaySinh;
         String mHinhDaiDien;
         String mHoTen;
         String mQueQuan;
@@ -78,12 +78,17 @@ public class SchoolGirlAdapter extends RecyclerView.Adapter<SchoolGirlAdapter.Vi
         String mSoDoBaVong;
         String mSothich;
         String mCauNoiYeuThich;
+        @BindView(R.id.imv_hinh_dai_dien)
+        ImageView imvHinhDaiDien;
+        @BindView(R.id.tv_hoten)
+        TextView tvHoten;
+        @BindView(R.id.tv_ngaysinh)
+        TextView tvNgaysinh;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            tvHoTen = (TextView) itemView.findViewById(R.id.tv_hoten);
-            tvNgaySinh = (TextView) itemView.findViewById(R.id.tv_ngaysinh);
-            imageView = (ImageView) itemView.findViewById(R.id.imv_hinh_dai_dien);
+            TextView tvNgaysinh;
+            ButterKnife.bind(this,itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
