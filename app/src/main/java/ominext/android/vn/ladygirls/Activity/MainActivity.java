@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
 import me.relex.circleindicator.CircleIndicator;
 import ominext.android.vn.ladygirls.APIService;
 import ominext.android.vn.ladygirls.Adapter.SchoolGirlAdapter;
@@ -22,18 +23,7 @@ import ominext.android.vn.ladygirls.R;
 import ominext.android.vn.ladygirls.View.MainView;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    @Override
-    public void getListNuSinhSuccess(ArrayList<SchoolGirl> list) {
-        nusinhAdpater = new SchoolGirlAdapter(MainActivity.this, R.layout.row_item_layout, list);
-        recycleview.setAdapter(nusinhAdpater);
 
-    }
-
-    @Override
-    public void getListTopSchoolGirlSuccess(ArrayList<TopSchoolGirl> list) {
-        viewPager.setAdapter(new SlidingImage_Adapter(MainActivity.this, list));
-        indicator.setViewPager(viewPager);
-    }
 
     @Override
     public void fail() {
@@ -83,6 +73,23 @@ public class MainActivity extends AppCompatActivity implements MainView {
 //            }
 //        });
     }
+    @Override
+    public void getListNuSinhSuccess(ArrayList<SchoolGirl> list) {
+        nusinhAdpater = new SchoolGirlAdapter(MainActivity.this, R.layout.row_item_layout, list);
+        recycleview.setAdapter(nusinhAdpater);
 
+    }
 
+    @Override
+    public void getListTopSchoolGirlSuccess(ArrayList<TopSchoolGirl> list) {
+        viewPager.setAdapter(new SlidingImage_Adapter(MainActivity.this, list));
+        indicator.setViewPager(viewPager);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+
+    }
 }

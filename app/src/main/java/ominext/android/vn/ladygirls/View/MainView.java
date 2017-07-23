@@ -12,6 +12,5 @@ import ominext.android.vn.ladygirls.Model.TopSchoolGirl;
 public interface MainView {
     void getListNuSinhSuccess(ArrayList<SchoolGirl> list);
     void getListTopSchoolGirlSuccess(ArrayList<TopSchoolGirl> list);
-
     void fail();
 }

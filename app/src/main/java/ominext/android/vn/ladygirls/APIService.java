@@ -1,10 +1,10 @@
 package ominext.android.vn.ladygirls;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import io.reactivex.Observable;
 import ominext.android.vn.ladygirls.Model.SchoolGirl;
 import ominext.android.vn.ladygirls.Model.TopSchoolGirl;
-import retrofit2.Call;
 import retrofit2.http.GET;
 
 /**
@@ -13,9 +13,9 @@ import retrofit2.http.GET;
 
 public interface APIService {
     @GET("/v2/596594ca110000ca00c8f202")
-    Call<ArrayList<TopSchoolGirl>> getListTopSchoolGirl();
+    Observable<List<TopSchoolGirl>> registertop();
 
     @GET("/v2/59642aac26000069083d72e3")
-    Call<ArrayList<SchoolGirl>> getListNuSinh();
+    Observable<List<SchoolGirl>> register();
 
 }
