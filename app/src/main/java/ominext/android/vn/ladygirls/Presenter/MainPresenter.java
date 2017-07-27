@@ -1,7 +1,5 @@
 package ominext.android.vn.ladygirls.Presenter;
 
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +11,6 @@ import ominext.android.vn.ladygirls.ApiUtils;
 import ominext.android.vn.ladygirls.Model.SchoolGirl;
 import ominext.android.vn.ladygirls.Model.TopSchoolGirl;
 import ominext.android.vn.ladygirls.View.MainView;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by MyPC on 11/07/2017.
@@ -34,34 +30,26 @@ public class MainPresenter {
 
     public void getDataNuSinh() {
 
-        APIService apiService = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(APIService.class);
-        compositeDisposable.add(apiService.register()
-                .observeOn(AndroidSchedulers.mainThread())
+        compositeDisposable.add(mAPIService.register()
                 .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse, this::handleError));
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::getDataNusinhSuccess, this::getDataNusinhError));
 
+    }
 
+    private void getDataNusinhSuccess(List<SchoolGirl> schoolGirls) {
+        view.getListNuSinhSuccess((ArrayList<SchoolGirl>) schoolGirls);
+    }
+
+    private void getDataNusinhError(Throwable throwable) {
+        view.fail();
     }
 
     private void handleResponse(List<SchoolGirl> schoolGirls) {
         view.getListNuSinhSuccess((ArrayList<SchoolGirl>) schoolGirls);
 
     }
-//        mAPIService.getListNuSinh().enqueue(new Callback<ArrayList<SchoolGirl>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<SchoolGirl>> call, Response<ArrayList<SchoolGirl>> response) {
-//                view.getListNuSinhSuccess(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ArrayList<SchoolGirl>> call, Throwable t) {
-//                view.fail();
-//            }
-//        });
+
 
 
     private void handleError(Throwable throwable) {
@@ -69,27 +57,13 @@ public class MainPresenter {
     }
 
     public void getDataTopSchoolGirl() {
-        APIService apiService = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build().create(APIService.class);
-        compositeDisposable.add(apiService.registertop()
+        compositeDisposable.add(mAPIService.registertop()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::getTopSuccess, this::getTopError));
-//        mAPIService.getListTopSchoolGirl().enqueue(new Callback<ArrayList<TopSchoolGirl>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<TopSchoolGirl>> call, Response<ArrayList<TopSchoolGirl>> response) {
-//                view.getListTopSchoolGirlSuccess(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ArrayList<TopSchoolGirl>> call, Throwable t) {
-//                view.fail();
-//            }
-//        });
+
     }
+
 
     private void getTopSuccess(List<TopSchoolGirl> topSchoolGirls) {
         view.getListTopSchoolGirlSuccess((ArrayList<TopSchoolGirl>) topSchoolGirls);
